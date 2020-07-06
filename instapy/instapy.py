@@ -1418,8 +1418,14 @@ class InstaPy:
         amount: int = 50,
         media: str = None,
         skip_top_posts: bool = True,
+        randomize: bool = False,
+        choice_amount=None
     ):
         """Likes (default) 50 images per given locations"""
+        if randomize and choice_amount is None:
+            choice_amount = amount * 2
+        else:
+            choice_amount = choice_amount or amount
         if self.aborting:
             return self
 
@@ -1442,7 +1448,7 @@ class InstaPy:
 
             try:
                 links = get_links_for_location(
-                    self.browser, location, amount, self.logger, media, skip_top_posts
+                    self.browser, location, choice_amount, self.logger, media, skip_top_posts
                 )
             except NoSuchElementException as exc:
                 self.logger.warning(
@@ -1452,6 +1458,10 @@ class InstaPy:
                     )
                 )
                 continue
+
+            if randomize:
+                random.shuffle(links)
+                links = links[:amount]
 
             for i, link in enumerate(links):
                 if self.jumps["consequent"]["likes"] >= self.jumps["limit"]["likes"]:
