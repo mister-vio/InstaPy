@@ -119,6 +119,7 @@ def set_selenium_local_session(
     # prefer user path before downloaded one
     driver_path = geckodriver_path or get_geckodriver()
     browser = webdriver.Firefox(
+        service_log_path=os.devnull,
         firefox_profile=firefox_profile,
         executable_path=driver_path,
         options=firefox_options,
