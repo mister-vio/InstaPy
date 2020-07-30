@@ -33,7 +33,7 @@ def get_geckodriver():
     asset_path = use_assets()
     gdd = GeckoDriverDownloader(asset_path, asset_path)
     # skips download if already downloaded
-    sym_path = gdd.download_and_install()[1]
+    sym_path = gdd.download_and_install(version=os.environ.get('GeckoDriverVersion', 'latest'))[1]
     return sym_path
 
 
