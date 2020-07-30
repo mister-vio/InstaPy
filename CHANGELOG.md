@@ -5,7 +5,7 @@ The **goal** of this file is explaining to the users of our project the notable 
 _The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)_.
 
 
-## Unreleased
+## [0.6.10] - 2020-07-30
 
 ### Added
 - Generallize mandatory words and add mandatory_bio_keywords
@@ -21,6 +21,7 @@ _The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Add specific firefox preference agent data to prevent error
 - Smart location url 
 - Error "Hide Selenium Extension: Error" mentioned in #5304
+- XPATH for like svg
 
 ## [0.6.9] - 2020-06-12
 
